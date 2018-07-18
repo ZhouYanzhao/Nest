@@ -39,7 +39,7 @@ pip install git+https://github.com/ZhouYanzhao/Nest.git
 
 # manually download and install
 git clone https://github.com/ZhouYanzhao/Nest.git
-pip install Nest
+pip install ./Nest
 ```
 
 ## Basic Usage

@@ -197,7 +197,15 @@ class CLI(object):
                 if args.delete and path is not None and os.path.isdir(path):
                     del_confirm = 'y' if args.yes else input('Delete the namespace directory "%s". Continue? (Y/n)' % (path,)).lower()
                     if del_confirm == '' or del_confirm == 'y':
-                        rmtree(path)
+                        # error handler
+                        def onerror(func, path, exc_info):
+                            import stat
+                            if not os.access(path, os.W_OK):
+                                os.chmod(path, stat.S_IWUSR)
+                                func(path)
+                            else:
+                                logger.warning('Failed to delete the namespace directory "%s".' % path)
+                        rmtree(path, onerror=onerror)
 
         elif args.command == 'pack':
             # pack Nest modules to a zip file

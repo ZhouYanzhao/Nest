@@ -461,8 +461,12 @@ class ModuleManager(object):
                     os.remove(cache_path)
         elif url.endswith('.git'):
             try:
-                subprocess.check_call(['git', 'clone'] + url.split())
-                return [url[url.rfind('/')+1: -4]]
+                repo_name = url[url.rfind('/')+1: -4]
+                match = re.search(r'(?:\s|^)(?:-b|--branch) (\w+)', url)
+                if match:
+                    repo_name += '-' + match.group(1)
+                subprocess.check_call(['git', 'clone'] + url.split() + [repo_name])
+                return [repo_name]
             except subprocess.CalledProcessError as exc_info:
                 U.alert_msg('Failed to clone "%s".' % url)
             return []

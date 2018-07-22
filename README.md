@@ -29,7 +29,7 @@ Moreover, a set of [Pytorch-backend Nest modules](https://github.com/ZhouYanzhao
 
 ## Prerequisites
 * System (tested on Ubuntu 14.04LTS, Win10, and MacOS *High Sierra*)
-* [Python](https://www.python.org) >= 3.5
+* [Python](https://www.python.org) >= 3.5.4
 * [Git](https://git-scm.com)
 
 ## Installation

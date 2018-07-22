@@ -3,12 +3,12 @@ from setuptools import setup, find_packages
 
 
 # check python version
-if sys.version_info < (3, 5):
-    sys.exit('Python < 3.5 is not supported.')
+if sys.version_info < (3, 5, 4):
+    sys.exit('Python < 3.5.4 is not supported.')
 
 setup(
     name='nest',
-    version='0.1.0',
+    version='0.1.1',
     description='Nest - A flexible tool for building and sharing deep learning modules',
     url='https://github.com/ZhouYanzhao/Nest',
     author='Zhou, Yanzhao',

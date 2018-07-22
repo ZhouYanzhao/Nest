@@ -353,7 +353,7 @@ class ModuleManager(object):
                      
                 # install tip
                 tip = ''
-                if (type(exc_info) is ModuleNotFoundError or type(exc_info) is ImportError) and exc_info.name is not None:
+                if (type(exc_info) is ImportError or type(exc_info) is ModuleNotFoundError) and exc_info.name is not None:
                     match = find_requirement(exc_info.name)
                     if match and match[0] > settings['INSTALL_TIP_THRESHOLD']:
                         tip = 'Try to execute "%s install %s" to install the missing dependency.' % \

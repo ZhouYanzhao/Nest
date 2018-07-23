@@ -4,6 +4,9 @@ import sys
 import fnmatch
 import inspect
 import importlib
+import importlib.abc
+import importlib.util
+import importlib.machinery
 import warnings
 import subprocess
 from types import ModuleType
